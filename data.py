@@ -116,6 +116,7 @@ class ImageFolder(data.Dataset):
         self.loader = loader
 
     def __getitem__(self, index):
+        index = min(index, len(self.imgs)-1)
         path = self.imgs[index]
         img = self.loader(path)
         if self.transform is not None:
